@@ -1,0 +1,8 @@
+---
+# documentation for commandline backup
+# https://helpcenter.veeam.com/docs/agentforwindows/userguide/backup_cmd.html?ver=60
+- name: run backup job
+  ansible.builtin.win_command:
+    argv:
+      - "{{ veeam_endpoint_agent }}"
+      - /backup

@@ -1,0 +1,77 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <ExecutionResult ExitCode='0' Version='6.3.2.1302'>
+   <Data>
+     <JobInfo ConfigId='00000000-0000-0000-0000-000000000000' CryptId='00000000-0000-0000-0000-000000000000' CryptType='10' JobDesc='Created by VMWIN2\Administrator at 1/9/2019 2:16 AM.' JobMode='2' JobName='Backup Job' ObjectName='VMWIN2' PolicyJobName=''>
+       <SourceInfo>
+         <EpDiskFilter BackupAllUsbDrives='False' BackupMode='1' BackupSystemState='False' BackupUserFolders='False' PartialConfig='False'>
+           <Drive FilterType='0' IsExternaldrive='False'>
+             <VolumeOrPartitionId MountPoint='C:\' Type='1'/>
+             <IncludeFolders>
+               <String value='C:\'/>
+             </IncludeFolders>
+             <ExcludeFolders/>
+           </Drive>
+           <IncludeMasks/>
+           <ExcludeMasks/>
+           <UserProfilesBackupOptions ExcludeCorruptedProfiles='False' ExcludeTemporaryProfiles='False' ExcludeRoamingProfiles='True' SelectedSpecialFolders='1' SelectedFolderTypes='127'/>
+         </EpDiskFilter>
+       </SourceInfo>
+       <TargetInfo DriveName='F:\' RelativePath='VeeamBackup\' Type='1'/>
+       <StorageInfo BlockSize='3' CompressionLevel='5'>
+         <Encryption Enabled='False'/>
+       </StorageInfo>
+       <RetentionInfo RetentionType='0' RestorePointsCount='10'/>
+       <CacheInfo Enabled='False'/>
+       <GuestInfo>
+         <Applications Enabled='False' ProcessTransactionLogs='True'>
+           <Credentials Password='' UserName=''/>
+           <Sql Mode='1'>
+             <Credentials Password='' UserName=''/>
+             <Backup BackupMinutes='15' Enabled='False' Expirable='True' ExpireDays='15'/>
+           </Sql>
+           <Oracle AccountType='0' LifetimeHours='24' Mode='0' SizeGB='10'>
+             <Credentials Password='' UserName=''/>
+             <Backup BackupMinutes='15' Enabled='False' Expirable='True' ExpireDays='15'/>
+           </Oracle>
+           <SharePoint>
+             <Credentials Password='' UserName=''/>
+           </SharePoint>
+           <Script Mode='0' PostThawPath='' PreFreezePath=''>
+             <Credentials Password='' UserName=''/>
+           </Script>
+         </Applications>
+         <Indexing Enabled='False' Type='3'>
+           <IncludedFolders/>
+           <ExcludedFolders>
+             <String value='%windir%'/>
+             <String value='%ProgramFiles%'/>
+             <String value='%ProgramFiles(x86)%'/>
+             <String value='%ProgramW6432%'/>
+             <String value='%TEMP%'/>
+           </ExcludedFolders>
+         </Indexing>
+       </GuestInfo>
+       <ScheduleInfo AtLock='False' AtLogOff='False' AtStorageAttach='False' CompletionMode='0' EjectRemovableStorageOnceBackupIsCompleted='False' LimitBackupsFrequency='False' ResumeMissedBackup='False' RunManually='True' UseBackupWindow='False' Version='1'>
+         <SyntheticFull Enabled='False'/>
+         <ActiveFull Enabled='False'/>
+         <HealthCheck Enabled='False'/>
+         <Compact Enabled='False'/>
+         <RetryInfo Enabled='True' TimeoutMinutes='10' Times='3'/>
+       </ScheduleInfo>
+       <StatisticsInfo AverageDuration='00:06:06.8250000' LastPointSize='1459957760' TotalSize='13091151872'/>
+     </JobInfo>
+     <ApplicationSettings CheckUpdates='True' CryptId='00000000-0000-0000-0000-000000000000' CryptType='10' DisableControlPanelNotification='False' DisableScheduledBackups='False' DisableWakeupTimers='False' EnableUserFlr='False' LastCheckForUpdates='01/09/2019 04:50:40' LockDownMode='False' LogoText='Veeam Agent' ServiceProviderMode='False' ShowBackupDuration='False' ThrottleBackupActivity='True'>
+       <EmailReport Notification='True'>
+         <Header From='jerald.blake@veeam.com' Subject='[%JobResult%] %ComputerName% - %JobName% - %CompletionTime%' To='jerald.blake@veeam.com'/>
+         <Conditions Failure='True' Success='True' Warning='True'/>
+         <Smtp Port='25' SecureConnection='False' Server='mail.veeam.com'>
+           <Credentials Password='Enter the password here' UserName='amVyYWxkLmJsYWtl'/>
+         </Smtp>
+       </EmailReport>
+       <Throttling DisableBackupOverMeteredConnection='True' LimitBandwith='True' RestrictVPNConnections='False' RestrictWiFiNetworks='False' SpeedLimit='2' SpeedUnit='2'/>
+     </ApplicationSettings>
+   </Data>
+   <Notifications>
+     <Notification Message='Configuration has been exported to C:\ProgramData\Veeam\Endpoint\!Configuration\Config.xml'/>
+   </Notifications>
+ </ExecutionResult>

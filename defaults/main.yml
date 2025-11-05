@@ -1,0 +1,8 @@
+---
+veeam_config: configuration.xml
+install_dir: path\\to\\folder
+config: configuration.xml
+veeam_agent_path: "C:\\Program Files\\Veeam\\Endpoint Backup\\Veeam.Agent.Configurator.exe"
+veeam_installer_url: https://urlforfile.com/file
+installer: installer.exe
+veeam_endpoint_agent: "C:\\Program Files\\Veeam\\Endpoint Backup\\Veeam.EndPoint.Manager.exe"

@@ -1,0 +1,39 @@
+---
+- name: copy installer to host
+  ansible.windows.win_get_url:
+    url: "{{ veeam_installer_url }}"
+    dest: "{{ install_dir }}\\{{ installer }}"
+- name: install veeam
+  ansible.windows.win_command:
+    argv:
+      - "{{ install_dir }}\\{{ installer }}"
+      - /silent
+      - /accepteula
+      - /acceptthirdpartylicenses
+      - /acceptliceningpolicy
+      - /acceptrequiredsoftware
+  register: installation_status
+  failed_when: installation_status.rc == 1002
+
+- name: print installation status
+  ansible.builtin.debug:
+    msg: >-
+      {% if installation.status.rc == 1000 %}
+      Exit code {{ installation.status.rc }}: Veeam Agent for Microsoft Windows has been successfully installed
+      {% elif installation.status.rc == 1001 %}
+      Exit code {{ installation.status.rc }}: Prequisite components required for Veeam Agent for Microsoft Windows have been installed on the machine. \
+      Veeam Agent for Microsoft Windows has not been installed.  The machine needs to be rebooted
+      {% elif installation.status.rc == 1002 %}
+      Exit code {{ installation.status.rc }}: Veeam Agent for Microsoft Windows installation has failed
+      {% elif installation.status.rc == 1004 %}
+      Exit code {{ installation.status.rc }}: Migration of SQLite database has failed
+      {% elif installation.status.rc == 1101 %}
+      Exit code {{ installation.status.rc }}: Veeam Agent for Microsoft Windows has been successfully installed.  The machine needs to be rebooted.
+      {% else %}
+      Exit code {{ installation.status.rc}}: Unkwown exit code.
+      {% endif %}
+
+    
+- name: reboot host
+  ansible.windows.win_reboot:
+  when: installation_status.rc == 1101 or 1001

@@ -1,0 +1,13 @@
+- name: copy and update configuration.xml failed
+  ansible.builtin.win_template:
+    src: "{{ veeam_config }}"
+    dest: "{{ install_dir }}\\{{ config }}"
+  vars:
+    host: "{{ inventory_hostname }}"
+    backup_share: "{{ file_share }}"
+- name: import config
+  ansible.windows.win_command:
+    argv:
+      - "{{ veeam_agent_path }}"
+      - -import
+      - /f:"{{ install_dir }}\\{{ config }}"
