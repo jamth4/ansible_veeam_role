@@ -6,3 +6,4 @@
     argv:
       - "{{ veeam_endpoint_agent }}"
       - /backup
+...
