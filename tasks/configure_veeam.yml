@@ -1,3 +1,4 @@
+---
 - name: copy and update configuration.xml failed
   ansible.builtin.win_template:
     src: "{{ veeam_config }}"
@@ -11,3 +12,4 @@
       - "{{ veeam_agent_path }}"
       - -import
       - /f:"{{ install_dir }}\\{{ config }}"
+...

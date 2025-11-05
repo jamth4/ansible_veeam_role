@@ -36,4 +36,5 @@
     
 - name: reboot host
   ansible.windows.win_reboot:
-  when: installation_status.rc == 1101 or 1001
+  when: installation_status.rc == 1101 or installation_status.rc == 1001
+...
